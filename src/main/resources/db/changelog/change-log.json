@@ -1,0 +1,14 @@
+{
+  "databaseChangeLog": [
+    {
+      "include": {
+        "file": "classpath:/db/changelog/changes/t_user_create.json"
+      }
+    },
+    {
+      "include": {
+        "file": "classpath:/db/changelog/changes/t_test_create.json"
+      }
+    }
+  ]
+}
