@@ -9,6 +9,16 @@
       "include": {
         "file": "classpath:/db/changelog/changes/t_test_create.json"
       }
+    },
+    {
+      "include": {
+        "file": "classpath:/db/changelog/changes/t_question_create.json"
+      }
+    },
+    {
+      "include": {
+        "file": "classpath:/db/changelog/changes/t_option_create.json"
+      }
     }
   ]
 }
