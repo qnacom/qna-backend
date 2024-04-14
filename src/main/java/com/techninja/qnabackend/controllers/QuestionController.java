@@ -15,7 +15,7 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
-    @GetMapping("/{testId}/questions")
+    @GetMapping("/tests/{testId}/questions")
     public List<QuestionView> getQuestions(@PathVariable Long testId) {
         return questionService.getAllQuestionsOf(testId);
     }

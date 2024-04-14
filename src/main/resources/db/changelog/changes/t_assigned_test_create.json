@@ -1,0 +1,91 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "V_0.5",
+        "author": "Rushikesh",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "T_ASSIGNED_TEST",
+              "columns": [
+                {
+                  "column": {
+                    "name": "ID",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "USER_ID",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false,
+                      "foreignKeyName": "FK_ASSIGNED_USER",
+                      "references": "T_USER(ID)"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "TEST_ID",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false,
+                      "foreignKeyName": "FK_ASSIGNED_TEST",
+                      "references": "T_TEST(ID)"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "CREATED_TS",
+                    "type": "TIMESTAMP",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "MODIFIED_TS",
+                    "type": "TIMESTAMP",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "CREATED_BY",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false,
+                      "foreignKeyName": "FK_ASSIGNED_USER1",
+                      "references": "T_USER(ID)"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "MODIFIED_BY",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false,
+                      "foreignKeyName": "FK_ASSIGNED_USER2",
+                      "references": "T_USER(ID)"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
