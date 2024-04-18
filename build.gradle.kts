@@ -20,7 +20,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.2.4")
 	implementation("org.postgresql:postgresql:42.7.3")
-	implementation("org.liquibase:liquibase-core:4.26.0")
+	implementation("org.liquibase:liquibase-core:4.27.0")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

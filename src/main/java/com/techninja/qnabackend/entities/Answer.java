@@ -8,8 +8,9 @@ import java.time.LocalDateTime;
 @Table(name = "T_ANSWERS")
 public class Answer {
     @Id
+    @SequenceGenerator(name = "t_answers_id_seq_generator", sequenceName = "t_answers_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "t_answers_id_seq_generator")
     private Long id;
-
     private Long questionId;
     private Long optionId;
     private Long userId;
@@ -19,8 +20,7 @@ public class Answer {
     public Answer() {
     }
 
-    public Answer(Long id, Long questionId, Long optionId, Long userId, LocalDateTime createdTs, LocalDateTime modifiedTs) {
-        this.id = id;
+    public Answer(Long questionId, Long optionId, Long userId, LocalDateTime createdTs, LocalDateTime modifiedTs) {
         this.questionId = questionId;
         this.optionId = optionId;
         this.userId=userId;

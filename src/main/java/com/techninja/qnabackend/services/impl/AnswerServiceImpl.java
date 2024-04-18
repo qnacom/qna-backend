@@ -21,8 +21,7 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public void saveAnswer(Long testId, Long questionId, AnswerRequest answerRequest) {
-        Answer answer = new Answer(Random.from(RandomGenerator.getDefault()).nextLong(),
-                questionId,
+        Answer answer = new Answer(questionId,
                 answerRequest.getOptionId(),
                 answerRequest.getUserId(),
                 LocalDateTime.now(),

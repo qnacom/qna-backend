@@ -24,6 +24,11 @@
       "include": {
         "file": "classpath:/db/changelog/changes/t_assigned_test_create.json"
       }
+    },
+    {
+      "include": {
+        "file": "classpath:/db/changelog/changes/t_answers_create.json"
+      }
     }
   ]
 }

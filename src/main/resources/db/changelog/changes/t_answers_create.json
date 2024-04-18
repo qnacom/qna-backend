@@ -6,6 +6,11 @@
         "author": "Rushikesh",
         "changes": [
           {
+            "createSequence": {
+              "sequenceName": "T_ANSWERS_ID_SEQ"
+            }
+          },
+          {
             "createTable": {
               "tableName": "T_ANSWERS",
               "columns": [
@@ -15,7 +20,8 @@
                     "type": "BIGINT",
                     "constraints": {
                       "primaryKey": true,
-                      "nullable": false
+                      "nullable": false,
+                      "nextVal": "T_ANSWERS_ID_SEQ"
                     }
                   }
                 },
