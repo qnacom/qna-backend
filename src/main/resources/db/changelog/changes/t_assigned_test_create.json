@@ -80,6 +80,15 @@
                       "references": "T_USER(ID)"
                     }
                   }
+                },
+                {
+                  "column": {
+                    "name": "STATE",
+                    "type": "VARCHAR(50)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
                 }
               ]
             }
