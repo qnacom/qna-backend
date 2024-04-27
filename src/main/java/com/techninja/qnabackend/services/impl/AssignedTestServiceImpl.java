@@ -1,7 +1,9 @@
 package com.techninja.qnabackend.services.impl;
 
+import com.techninja.qnabackend.controllers.request.AnswerRequest;
+import com.techninja.qnabackend.controllers.request.AssignedRequest;
 import com.techninja.qnabackend.entities.AssignedTest;
-import com.techninja.qnabackend.repositories.AssignedTestRepository;
+import com.techninja.qnabackend.repositories.*;
 import com.techninja.qnabackend.repositories.TestRepository;
 import com.techninja.qnabackend.services.AssignedTestService;
 import com.techninja.qnabackend.views.TestView;
@@ -37,6 +39,15 @@ public class AssignedTestServiceImpl implements AssignedTestService {
 
         // Create a UserView object containing the assigned tests
         return List.of(new UserView(userId, assignedTests));
+    }
+
+    @Override
+    public void changeState(AssignedRequest assignedRequest, Long testId) {
+       AssignedTest assignedTest = assignedTestRepository.findByUserIdAndTestId(assignedRequest.getUserId(),testId);
+        assignedTest.setUserId(assignedRequest.getUserId());
+        assignedTest.setState(assignedRequest.getState());
+        assignedTestRepository.save(assignedTest);
+
     }
 }
 

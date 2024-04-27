@@ -23,6 +23,14 @@ public class AssignedTest {
     private Long createdBy;
 
     private Long modifiedBy;
+    private String state;
+
+    public String getState() {
+        return state;
+    }
+    public void setState(String state) {
+        this.state = state;
+    }
 
     public Long getId() {
         return id;
@@ -78,6 +86,11 @@ public class AssignedTest {
 
     public void setTestId(Long testId) {
         this.testId = testId;
+    }
+
+    public AssignedTest(Long userId, String state) {
+        this.userId = userId;
+        this.state = state;
     }
 
     public AssignedTest(Long userId, Long testId) {
