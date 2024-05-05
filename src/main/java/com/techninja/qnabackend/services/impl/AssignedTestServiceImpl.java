@@ -19,10 +19,8 @@ public class AssignedTestServiceImpl implements AssignedTestService {
 
     @Autowired
     private TestRepository testRepository;
-
     @Autowired
     private AssignedTestRepository assignedTestRepository;
-
     @Override
     public List<UserView> getAllAssignedTests(Long userId) {
         // Retrieve assigned tests for the given user
@@ -30,7 +28,6 @@ public class AssignedTestServiceImpl implements AssignedTestService {
                 .stream()
                 .map(AssignedTest::getTestId)
                 .toList();
-
         // Map assigned test IDs to TestView objects
         List<TestView> assignedTests = testRepository.findAllByIdIn(assignedTestIds)
                 .stream()
@@ -40,14 +37,13 @@ public class AssignedTestServiceImpl implements AssignedTestService {
         // Create a UserView object containing the assigned tests
         return List.of(new UserView(userId, assignedTests));
     }
-
     @Override
     public void changeState(AssignedRequest assignedRequest, Long testId) {
-       AssignedTest assignedTest = assignedTestRepository.findByUserIdAndTestId(assignedRequest.getUserId(),testId);
+       AssignedTest assignedTest = assignedTestRepository.findByUserIdAndTestId(
+               assignedRequest.getUserId(),testId);
         assignedTest.setUserId(assignedRequest.getUserId());
         assignedTest.setState(assignedRequest.getState());
         assignedTestRepository.save(assignedTest);
-
     }
 }
 

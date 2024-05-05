@@ -1,6 +1,6 @@
 package com.techninja.qnabackend.controllers;
+
 import com.techninja.qnabackend.controllers.request.AnswerRequest;
-import com.techninja.qnabackend.entities.Answer;
 import com.techninja.qnabackend.services.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
