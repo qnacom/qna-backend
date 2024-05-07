@@ -30,6 +30,9 @@ public class AssignedTestController {
         assignedTestService.changeState(assignedRequest, testId);
     }
 
+    /**
+     * TODO: In this api, serve only stats - solved, unsolved and total questions. Create another api for result.
+     */
     @PostMapping("/test-stats/")
     public ResponseEntity<TestStatView> solvedQuestion(@RequestBody TestStatsRequest testStatsRequest) {
         TestStatView list = answerService.getTestsStats(testStatsRequest);
