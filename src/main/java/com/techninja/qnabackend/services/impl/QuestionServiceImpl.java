@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
@@ -32,5 +33,14 @@ public class QuestionServiceImpl implements QuestionService {
                     return new QuestionView(question.getId(), question.getQuestion(), options);
                 })
                 .toList();
+    }
+
+    @Override
+    public List<QuestionView> allQuestionByTestId(Long testId) {
+        List<QuestionView> questionViews = questionRepository.findQuestion(testId)
+                .stream()
+                .map(q-> new QuestionView(q.getId() ,q.getQuestion()))
+                .toList();
+        return questionViews;
     }
 }

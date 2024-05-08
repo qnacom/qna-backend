@@ -12,6 +12,11 @@ public class QuestionView {
         this.question = question;
         this.options = options;
     }
+    public QuestionView(Long id,String question)
+    {
+        this.id=id;
+        this.question=question;
+    }
 
     public Long getId() {
         return id;

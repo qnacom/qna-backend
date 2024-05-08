@@ -5,6 +5,19 @@ import java.util.List;
 public class UserView {
     private Long id;
     private List<TestView> tests;
+    private String firstName;
+
+    public UserView(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
     public UserView(Long id, List<TestView> tests) {
         this.id = id;

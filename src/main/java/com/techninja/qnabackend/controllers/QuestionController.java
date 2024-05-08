@@ -19,4 +19,8 @@ public class QuestionController {
     public List<QuestionView> getQuestions(@PathVariable Long testId) {
         return questionService.getAllQuestionsOf(testId);
     }
+    @GetMapping("/tests/{testId}/question")
+    public  List<QuestionView> getQuestionWithId(@PathVariable Long testId) {
+        return  questionService.allQuestionByTestId(testId);
+    }
 }

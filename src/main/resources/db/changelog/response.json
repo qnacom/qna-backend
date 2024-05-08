@@ -1,0 +1,17 @@
+response body
+{
+  "solvedQuestion":33=,
+  "unSolvedQuestion": 17=unsloved=allquestion-solvedquestion;
+  getallquestionbyuserd;
+
+
+}
+api method = post
+api path=/test-stats/
+requestbody
+{
+  "userId": 1,
+  "tesrId": 2
+}
+formulas
+count row for userid and testid for t_answers
