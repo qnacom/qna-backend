@@ -22,6 +22,11 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public List<QuestionView> getAllQuestionsOf(Long testId) {
+
+        /**
+         * TODO: We are calling two method here. One on questionRepository and one on optionRepository.
+         * Call only one method on questionRepository.
+         */
         return questionRepository.findAllByTestId(testId)
                 .stream()
                 .map(question -> {

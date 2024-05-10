@@ -19,7 +19,11 @@ public class TestController {
         public TestController(TestService testService) {
             this.testService = testService;
         }
-        @GetMapping("/{testId}/questions")
+
+    /**
+     * TODO: Remove this api
+     */
+    @GetMapping("/{testId}/questions")
         public ResponseEntity<List<Object[]>> getQuestionsAndTestNameByTestId(@PathVariable Long testId) {
             List<Object[]> result = testService.findQuestionsAndTestNameByTestId(testId);
             return ResponseEntity.ok(result);

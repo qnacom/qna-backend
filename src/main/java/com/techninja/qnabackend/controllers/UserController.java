@@ -19,6 +19,12 @@ public class UserController {
     @Autowired
     public UserService userService;
 
+    /**
+     * TODO: Remove this api
+     * @param lastName
+     * @return
+     */
+
     @GetMapping("/users/{lastName}")
     public ResponseEntity<List<UserView>> getUsersByLastName(@PathVariable String lastName)
     {

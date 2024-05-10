@@ -24,6 +24,11 @@ public class AssignedTestServiceImpl implements AssignedTestService {
     @Override
     public List<UserView> getAllAssignedTests(Long userId) {
         // Retrieve assigned tests for the given user
+
+        /**
+         * TODO: We are calling two method here. One on questionRepository and one on optionRepository.
+         * Call only one method on questionRepository.
+         */
         List<Long> assignedTestIds = assignedTestRepository.findAllByUserId(userId)
                 .stream()
                 .map(AssignedTest::getTestId)
