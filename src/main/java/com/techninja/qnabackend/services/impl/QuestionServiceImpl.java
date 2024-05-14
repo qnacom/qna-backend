@@ -1,5 +1,6 @@
 package com.techninja.qnabackend.services.impl;
 
+import com.techninja.qnabackend.entities.Question;
 import com.techninja.qnabackend.repositories.OptionRepository;
 import com.techninja.qnabackend.repositories.QuestionRepository;
 import com.techninja.qnabackend.services.QuestionService;
@@ -19,6 +20,22 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
     private OptionRepository optionRepository;
+
+    @Override
+    public List<QuestionView> allQuestion(Long testID) {
+
+        return questionRepository.findAllByTestId(testID)
+                .stream()
+                .map(question -> new QuestionView(question.getId()
+                        ,question.getQuestion(),
+                        question.getOptionList().
+                                stream().
+                                map(option -> new OptionView(option.getId(),
+                                        option.getOption()))
+                                .toList()
+                )).toList();
+
+    }
 
     @Override
     public List<QuestionView> getAllQuestionsOf(Long testId) {

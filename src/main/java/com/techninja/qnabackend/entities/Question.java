@@ -1,10 +1,9 @@
 package com.techninja.qnabackend.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "T_QUESTION")
@@ -24,6 +23,16 @@ public class Question {
     private Long modifiedBy;
 
     private Long testId;
+     @OneToMany(mappedBy = "question")
+     private List<Option> optionList;
+
+    public List<Option> getOptionList() {
+        return optionList;
+    }
+
+    public void setOptionList(List<Option> optionList) {
+        this.optionList = optionList;
+    }
 
     public Long getId() {
         return id;

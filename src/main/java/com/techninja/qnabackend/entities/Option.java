@@ -1,8 +1,6 @@
 package com.techninja.qnabackend.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -23,9 +21,18 @@ public class Option {
 
     private Long modifiedBy;
 
-    private Long questionId;
-
     private Boolean isAnswer;
+    @ManyToOne
+    @JoinColumn(name = "question_id")
+    private Question question;
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
 
     public Long getId() {
         return id;
@@ -73,14 +80,6 @@ public class Option {
 
     public void setModifiedBy(Long modifiedBy) {
         this.modifiedBy = modifiedBy;
-    }
-
-    public Long getQuestionId() {
-        return questionId;
-    }
-
-    public void setQuestionId(Long questionId) {
-        this.questionId = questionId;
     }
 
     public Boolean getAnswer() {

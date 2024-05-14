@@ -14,9 +14,4 @@ public class TestSerivceImpl implements TestService {
     public TestSerivceImpl(TestRepository testRepository) {
         this.testRepository = testRepository;
     }
-
-
-    public List<Object[]> findQuestionsAndTestNameByTestId(Long testId) {
-        return testRepository.findQuestionsAndTestNameByTestId(testId);
-    }
 }

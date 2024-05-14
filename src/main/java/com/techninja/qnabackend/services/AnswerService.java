@@ -7,5 +7,5 @@ import com.techninja.qnabackend.views.TestStatView;
 public interface AnswerService {
     void saveAnswer(Long testId, Long questionId, AnswerRequest answerRequest);
 
-    TestStatView getTestsStats(TestStatsRequest testStatsRequest);
+  //  TestStatView getTestsStats(TestStatsRequest testStatsRequest);
 }

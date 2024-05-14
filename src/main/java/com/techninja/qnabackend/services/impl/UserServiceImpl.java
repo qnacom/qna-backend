@@ -16,12 +16,6 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
-    @Override
-    public List<UserView> getAllUserName(String lastName) {
-        List<UserView> userViews=userRepository.findAllLastName(lastName)
-                .stream()
-                .map(u-> new UserView(u.getFirstName()))
-                .toList();
-        return userViews;
-    }
+
+
 }

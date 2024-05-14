@@ -41,19 +41,19 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
 
-    @Override
+  /*  @Override
     public TestStatView getTestsStats(TestStatsRequest testStatsRequest) {
         List<Question> questions = questionRepository.findAllByTestId(testStatsRequest.getTestId());
 
         /**
          * TODO: Load only answers for a particular test. You are loading all answers of that user
          * */
-        List<Answer> answers = answerRepository.findAllByUserId(testStatsRequest.getUserId());
+     //   List<Answer> answers = answerRepository.findAllByUserId(testStatsRequest.getUserId());
 
         /**
          * TODO: Load only correct options of all questions of that test only. You are loading all options
          */
-        List<Option> options = optionRepository.findAll();
+      /*  List<Option> options = optionRepository.findAll();
         Integer count = 0;
 
         for (Answer a : answers) {
@@ -74,7 +74,7 @@ public class AnswerServiceImpl implements AnswerService {
                 count,
                 questions.size() - count,
                 count);
-    }
+    }*/
 }
 
 
