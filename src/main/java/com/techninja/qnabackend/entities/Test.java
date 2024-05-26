@@ -3,6 +3,7 @@ package com.techninja.qnabackend.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name="T_TEST")
@@ -10,11 +11,15 @@ public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     private LocalDateTime createdTs;
+
     private LocalDateTime modifiedTs;
 
     private Long createdBy;
+    
     private Long modifiedBy;
 
     public Long getId() {

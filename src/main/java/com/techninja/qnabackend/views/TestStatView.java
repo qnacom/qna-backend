@@ -4,15 +4,10 @@ public class TestStatView {
     private Integer solvedQuestions;
     private Integer unSolvedQuestions;
     private Integer total;
-    private Integer correctAnswers;
-    private Integer wrongAnswers;
-    private Integer result;
 
-    public Integer getTotal() {
-        return total;
-    }
-
-    public void setTotal(Integer total) {
+    public TestStatView(Integer solvedQuestions, Integer unSolvedQuestions, Integer total) {
+        this.solvedQuestions = solvedQuestions;
+        this.unSolvedQuestions = unSolvedQuestions;
         this.total = total;
     }
 
@@ -32,41 +27,11 @@ public class TestStatView {
         this.unSolvedQuestions = unSolvedQuestions;
     }
 
-    public Integer getCorrectAnswers() {
-        return correctAnswers;
+    public Integer getTotal() {
+        return total;
     }
 
-    public void setCorrectAnswers(Integer correctAnswers) {
-        this.correctAnswers = correctAnswers;
-    }
-
-    public Integer getWrongAnswers() {
-        return wrongAnswers;
-    }
-
-    public void setWrongAnswers(Integer wrongAnswers) {
-        this.wrongAnswers = wrongAnswers;
-    }
-
-    public Integer getResult() {
-        return result;
-    }
-
-    public void setResult(Integer result) {
-        this.result = result;
-    }
-
-    public TestStatView(Integer solvedQuestions,
-                        Integer unSolvedQuestions,
-                        Integer total,
-                        Integer correctAnswers,
-                        Integer wrongAnswers,
-                        Integer result) {
-        this.solvedQuestions = solvedQuestions;
-        this.unSolvedQuestions = unSolvedQuestions;
+    public void setTotal(Integer total) {
         this.total = total;
-        this.correctAnswers = correctAnswers;
-        this.wrongAnswers = wrongAnswers;
-        this.result = result;
     }
 }

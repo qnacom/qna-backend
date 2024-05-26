@@ -23,15 +23,47 @@ public class Question {
     private Long modifiedBy;
 
     private Long testId;
-     @OneToMany(mappedBy = "question")
-     private List<Option> optionList;
 
-    public List<Option> getOptionList() {
-        return optionList;
+    @OneToMany(mappedBy = "question", targetEntity = Option.class)
+    private List<Option> options;
+
+    @OneToOne(mappedBy = "question")
+    private Answer answer;
+
+    public Question(Long id) {
+        this.id = id;
     }
 
-    public void setOptionList(List<Option> optionList) {
-        this.optionList = optionList;
+    public Question(Long id,
+                    String question,
+                    LocalDateTime createdTs,
+                    LocalDateTime modifiedTs,
+                    Long createdBy,
+                    Long modifiedBy,
+                    Long testId) {
+        this.id = id;
+        this.question = question;
+        this.createdTs = createdTs;
+        this.modifiedTs = modifiedTs;
+        this.createdBy = createdBy;
+        this.modifiedBy = modifiedBy;
+        this.testId = testId;
+    }
+
+    public Answer getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
+    }
+
+    public List<Option> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<Option> options) {
+        this.options = options;
     }
 
     public Long getId() {

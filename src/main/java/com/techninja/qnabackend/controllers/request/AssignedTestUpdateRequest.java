@@ -1,6 +1,6 @@
 package com.techninja.qnabackend.controllers.request;
 
-public class AssignedRequest {
+public class AssignedTestUpdateRequest {
     private Long userId;
     private  String state;
 

@@ -11,10 +11,15 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     private Long id;
+
     private String firstName;
+
     private String lastName;
+
     private  String email;
+
     private LocalDateTime createdTs;
+
     private LocalDateTime modifiedTs;
 
     public Long getId() {

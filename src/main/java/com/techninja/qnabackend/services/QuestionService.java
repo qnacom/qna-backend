@@ -8,6 +8,4 @@ import java.util.List;
 public interface QuestionService {
 
     List<QuestionView> getAllQuestionsOf(Long testId);
-    List<QuestionView> allQuestionByTestId(Long testId);
-    List<QuestionView> allQuestion(Long testID);
 }

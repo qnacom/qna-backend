@@ -12,5 +12,4 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
     @Query(value = "select q from Question q where q.testId=?1")
     List<Question> findQuestion(Long testId);
 
-    List<Question> findAllIdByTestId(Long testId);
 }

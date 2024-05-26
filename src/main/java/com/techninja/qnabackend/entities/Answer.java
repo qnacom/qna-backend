@@ -3,6 +3,7 @@ package com.techninja.qnabackend.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "T_ANSWERS")
@@ -11,19 +12,38 @@ public class Answer {
     @SequenceGenerator(name = "t_answers_id_seq_generator", sequenceName = "t_answers_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "t_answers_id_seq_generator")
     private Long id;
-    private Long questionId;
+
+    @OneToOne
+    @JoinColumn(name = "question_id")
+    private Question question;
+
     private Long optionId;
+
     private Long userId;
+
     private LocalDateTime createdTs;
+
     private LocalDateTime modifiedTs;
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
 
     public Answer() {
     }
 
-    public Answer(Long questionId, Long optionId, Long userId, LocalDateTime createdTs, LocalDateTime modifiedTs) {
-        this.questionId = questionId;
+    public Answer(Question question,
+                  Long optionId,
+                  Long userId,
+                  LocalDateTime createdTs,
+                  LocalDateTime modifiedTs) {
+        this.question = question;
         this.optionId = optionId;
-        this.userId=userId;
+        this.userId = userId;
         this.createdTs = createdTs;
         this.modifiedTs = modifiedTs;
     }
@@ -34,14 +54,6 @@ public class Answer {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getQuestionId() {
-        return questionId;
-    }
-
-    public void setQuestionId(Long questionId) {
-        this.questionId = questionId;
     }
 
     public Long getOptionId() {

@@ -1,13 +1,11 @@
 package com.techninja.qnabackend.services;
 
-import com.techninja.qnabackend.controllers.request.AssignedRequest;
-import com.techninja.qnabackend.views.UserView;
+import com.techninja.qnabackend.controllers.request.AssignedTestUpdateRequest;
+import com.techninja.qnabackend.views.TestView;
 
 import java.util.List;
 
 public interface AssignedTestService {
-    List<UserView> getAllAssignedTests(Long userId);
-    void changeState(AssignedRequest assignedRequest, Long testId);
-
-
+    List<TestView> getAllAssignedTests(Long userId);
+   void changeState(AssignedTestUpdateRequest assignedRequest, Long testId);
 }

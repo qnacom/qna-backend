@@ -1,7 +1,5 @@
 package com.techninja.qnabackend.views;
 
-import java.util.List;
-
 public class OptionView {
     private Long id;
     private String option;

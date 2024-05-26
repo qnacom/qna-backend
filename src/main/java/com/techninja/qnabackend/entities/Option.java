@@ -22,8 +22,9 @@ public class Option {
     private Long modifiedBy;
 
     private Boolean isAnswer;
+
     @ManyToOne
-    @JoinColumn(name = "question_id")
+    @JoinColumn(name = "question_id",referencedColumnName = "id")
     private Question question;
 
     public Question getQuestion() {

@@ -1,8 +1,6 @@
 package com.techninja.qnabackend.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +12,9 @@ public class AssignedTest {
 
     private Long userId;
 
-    private Long testId;
+    @OneToOne
+    @JoinColumn(name="test_id")
+    private Test test;
 
     private LocalDateTime createdTs;
 
@@ -23,11 +23,20 @@ public class AssignedTest {
     private Long createdBy;
 
     private Long modifiedBy;
+
     private String state;
+
+    public AssignedTest(String state) {
+        this.state = state;
+    }
+
+    public AssignedTest() {
+    }
 
     public String getState() {
         return state;
     }
+
     public void setState(String state) {
         this.state = state;
     }
@@ -72,32 +81,11 @@ public class AssignedTest {
         this.modifiedBy = modifiedBy;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Test getTest() {
+        return test;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getTestId() {
-        return testId;
-    }
-
-    public void setTestId(Long testId) {
-        this.testId = testId;
-    }
-
-    public AssignedTest(Long userId, String state) {
-        this.userId = userId;
-        this.state = state;
-    }
-
-    public AssignedTest(Long userId, Long testId) {
-        this.userId = userId;
-        this.testId = testId;
-    }
-
-    public AssignedTest() {
+    public void setTest(Test test) {
+        this.test = test;
     }
 }
