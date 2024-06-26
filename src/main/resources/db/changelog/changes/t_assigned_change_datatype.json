@@ -1,0 +1,19 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "V_0.9",
+        "author": "Rushikesh",
+        "changes": [
+          {
+            "modifyDataType": {
+              "tableName": "T_ASSIGNED_TEST",
+              "columnName": "STATE",
+              "newDataType": "BIGINT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

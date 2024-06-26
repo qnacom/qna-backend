@@ -29,6 +29,7 @@ public class Question {
 
     @OneToOne(mappedBy = "question")
     private Answer answer;
+    public Question(){}
 
     public Question(Long id) {
         this.id = id;

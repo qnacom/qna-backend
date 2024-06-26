@@ -1,0 +1,38 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "V_0.7",
+        "author": "Rushikesh",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "T_STATES",
+              "columns": [
+                {
+                  "column": {
+                    "name": "ID",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "STATE",
+                    "type": "VARCHAR(1000)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

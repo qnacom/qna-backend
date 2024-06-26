@@ -85,8 +85,8 @@
                   "column": {
                     "name": "STATE",
                     "type": "VARCHAR(50)",
-                    "constraints": {
-                      "nullable": false
+                      "constraints": {
+                        "nullable": false
                     }
                   }
                 }

@@ -1,0 +1,21 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "V_0.8",
+        "author": "RUSHIKESH",
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "T_ASSIGNED_TEST",
+              "baseColumnNames": "STATE",
+              "constraintName": "FK_ASSIGNED_STATES",
+              "referencedTableName": "T_STATES",
+              "referencedColumnNames": "ID"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

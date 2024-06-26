@@ -17,12 +17,27 @@
     },
     {
       "include": {
+        "file": "classpath:/db/changelog/changes/t_assigned_change_datatype.json"
+      }
+    },
+    {
+      "include": {
         "file": "classpath:/db/changelog/changes/t_option_create.json"
       }
     },
     {
       "include": {
         "file": "classpath:/db/changelog/changes/t_assigned_test_create.json"
+      }
+    },
+    {
+      "include": {
+        "file": "classpath:/db/changelog/changes/t_states_create.json"
+      }
+    },
+    {
+      "include": {
+        "file": "classpath:/db/changelog/changes/t_assigned_changes.json"
       }
     },
     {
