@@ -37,14 +37,7 @@ public class AnswerServiceImpl implements AnswerService {
         answerRepository.save(answer);
     }
 
-    @Override
-    public TestStatView getTestStat(TestStatsRequest testStatsRequest) {
-        List<Answer> answers = answerRepository.findAllByUserId(testStatsRequest.getUserId());
-        Integer solved = answers.size();
-        Integer total = questionRepository.findAllByTestId(testStatsRequest.getTestId()).size();
-        Integer unsolved = total - solved;
-        return new TestStatView(solved, unsolved, total);
-    }
+
 }
 
 

@@ -24,20 +24,25 @@ public class AssignedTest {
 
     private Long modifiedBy;
 
-    private String state;
+    private Long state;
 
-    public AssignedTest(String state) {
-        this.state = state;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public AssignedTest() {
     }
 
-    public String getState() {
+    public Long getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(Long state) {
         this.state = state;
     }
 

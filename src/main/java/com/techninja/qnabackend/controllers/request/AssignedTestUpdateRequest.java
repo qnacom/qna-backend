@@ -2,7 +2,7 @@ package com.techninja.qnabackend.controllers.request;
 
 public class AssignedTestUpdateRequest {
     private Long userId;
-    private  String state;
+    private  Long state;
 
     public Long getUserId() {
         return userId;
@@ -12,11 +12,11 @@ public class AssignedTestUpdateRequest {
         this.userId = userId;
     }
 
-    public String getState() {
+    public Long getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(Long state) {
         this.state = state;
     }
 }
