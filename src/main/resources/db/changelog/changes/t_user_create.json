@@ -69,6 +69,39 @@
           }
         ]
       }
+    },
+    {
+      "changeSet": {
+        "id": "V_0.10",
+        "author": "Rushikesh",
+        "changes": [
+          {
+            "addColumn": {
+              "tableName": "T_USER",
+              "columns": [
+                {
+                  "column": {
+                    "name": "ROLE",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "T_USER",
+              "baseColumnNames": "ROLE",
+              "constraintName": "FK_ROLE",
+              "referencedTableName": "T_ROLE",
+              "referencedColumnNames": "ID"
+            }
+          }
+        ]
+      }
     }
   ]
 }

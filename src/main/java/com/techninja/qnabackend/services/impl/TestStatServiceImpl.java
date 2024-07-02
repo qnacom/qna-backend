@@ -46,7 +46,6 @@ public class TestStatServiceImpl implements TestStatService {
                 .map(q -> q.getQuestion().getId())
                 .distinct()
                 .toList();
-        System.out.println(questionId.stream().map(m -> m).toList());
         List<Option> questionOption = optionRepository.findAllByQuestionIdIn(questionId);
         for (Answer answer : answers) {
             for (Option option : questionOption) {

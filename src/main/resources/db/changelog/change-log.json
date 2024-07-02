@@ -42,6 +42,11 @@
     },
     {
       "include": {
+        "file": "classpath:/db/changelog/changes/t_role_create.json"
+      }
+    },
+    {
+      "include": {
         "file": "classpath:/db/changelog/changes/t_answers_create.json"
       }
     }
