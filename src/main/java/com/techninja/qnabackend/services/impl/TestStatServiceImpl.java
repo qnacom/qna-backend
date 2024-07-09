@@ -3,7 +3,6 @@ package com.techninja.qnabackend.services.impl;
 import com.techninja.qnabackend.controllers.request.TestStatsRequest;
 import com.techninja.qnabackend.entities.Answer;
 import com.techninja.qnabackend.entities.Option;
-import com.techninja.qnabackend.entities.Question;
 import com.techninja.qnabackend.repositories.AnswerRepository;
 import com.techninja.qnabackend.repositories.OptionRepository;
 import com.techninja.qnabackend.repositories.QuestionRepository;
@@ -13,7 +12,6 @@ import com.techninja.qnabackend.views.TestStatView;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class TestStatServiceImpl implements TestStatService {
@@ -51,7 +49,7 @@ public class TestStatServiceImpl implements TestStatService {
             for (Option option : questionOption) {
                 if (answer.getQuestion().getId().equals(option.getQuestion().getId()) &&
                         answer.getOptionId().equals(option.getId())) {
-                    if (option.getAnswer()) {
+                    if (option.getIsAnswer()) {
                         correct++;
                     } else {
                         wrong++;

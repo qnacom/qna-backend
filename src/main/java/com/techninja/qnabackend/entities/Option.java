@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class Option {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String option;
@@ -24,8 +25,40 @@ public class Option {
     private Boolean isAnswer;
 
     @ManyToOne
-    @JoinColumn(name = "question_id",referencedColumnName = "id")
+    @JoinColumn(name = "question_id")
     private Question question;
+
+    public Option(
+            String option,
+            LocalDateTime createdTs,
+            LocalDateTime modifiedTs,
+            Long createdBy,
+            Long modifiedBy,
+            Boolean isAnswer) {
+        this.option = option;
+        this.createdTs = createdTs;
+        this.modifiedTs = modifiedTs;
+        this.createdBy = createdBy;
+        this.modifiedBy = modifiedBy;
+        this.isAnswer = isAnswer;
+    }
+
+    public Option(
+            String option,
+            LocalDateTime createdTs,
+            LocalDateTime modifiedTs,
+            Question question,
+            Long createdBy,
+            Long modifiedBy,
+            Boolean isAnswer) {
+        this.option = option;
+        this.createdTs = createdTs;
+        this.modifiedTs = modifiedTs;
+        this.question=question;
+        this.createdBy = createdBy;
+        this.modifiedBy = modifiedBy;
+        this.isAnswer = isAnswer;
+    }
 
     public Question getQuestion() {
         return question;
@@ -83,11 +116,11 @@ public class Option {
         this.modifiedBy = modifiedBy;
     }
 
-    public Boolean getAnswer() {
+    public Boolean getIsAnswer() {
         return isAnswer;
     }
 
-    public void setAnswer(Boolean answer) {
+    public void setIsAnswer(Boolean answer) {
         isAnswer = answer;
     }
 }

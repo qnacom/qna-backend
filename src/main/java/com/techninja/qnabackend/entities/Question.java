@@ -10,6 +10,7 @@ import java.util.List;
 public class Question {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String question;
@@ -24,7 +25,7 @@ public class Question {
 
     private Long testId;
 
-    @OneToMany(mappedBy = "question", targetEntity = Option.class)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.PERSIST)
     private List<Option> options;
 
     @OneToOne(mappedBy = "question")
@@ -35,15 +36,15 @@ public class Question {
         this.id = id;
     }
 
-    public Question(Long id,
-                    String question,
+    public Question(String question,
+                    List<Option> options,
                     LocalDateTime createdTs,
                     LocalDateTime modifiedTs,
                     Long createdBy,
                     Long modifiedBy,
                     Long testId) {
-        this.id = id;
         this.question = question;
+        this.options = options;
         this.createdTs = createdTs;
         this.modifiedTs = modifiedTs;
         this.createdBy = createdBy;

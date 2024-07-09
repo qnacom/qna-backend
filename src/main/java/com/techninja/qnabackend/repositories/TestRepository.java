@@ -9,5 +9,6 @@ import java.util.List;
 
 public interface TestRepository extends JpaRepository<Test, Long> {
    List<Test> findAllByIdIn(List<Long> assignedTestIds);
+   Long findIdByName(String name);
 }
 

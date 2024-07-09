@@ -93,6 +93,21 @@
           }
         ]
       }
+    },
+    {
+      "changeSet": {
+        "id": "V_0.11",
+        "author": "Rushikesh",
+        "changes": [
+          {
+            "addAutoIncrement": {
+              "tableName": "T_OPTION",
+              "columnName": "ID",
+              "columnDataType": "BIGINT"
+            }
+          }
+        ]
+      }
     }
   ]
 }
