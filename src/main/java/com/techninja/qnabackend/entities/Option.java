@@ -60,6 +60,9 @@ public class Option {
         this.isAnswer = isAnswer;
     }
 
+    public Option() {
+    }
+
     public Question getQuestion() {
         return question;
     }

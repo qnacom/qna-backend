@@ -21,11 +21,10 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public List<QuestionView> getAllQuestionsOf(Long testID) {
-
         return questionRepository.findAllByTestId(testID)
                 .stream()
                 .map(question -> new QuestionView(question.getId()
-                        ,question.getQuestion(),
+                        , question.getQuestion(),
                         question.getOptions().
                                 stream().
                                 map(option -> new OptionView(option.getId(),

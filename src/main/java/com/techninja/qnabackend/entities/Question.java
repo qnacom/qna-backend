@@ -37,14 +37,12 @@ public class Question {
     }
 
     public Question(String question,
-                    List<Option> options,
                     LocalDateTime createdTs,
                     LocalDateTime modifiedTs,
                     Long createdBy,
                     Long modifiedBy,
                     Long testId) {
         this.question = question;
-        this.options = options;
         this.createdTs = createdTs;
         this.modifiedTs = modifiedTs;
         this.createdBy = createdBy;

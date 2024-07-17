@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toList;
+
 @Service
 public class TestServiceImpl implements CreateTestService {
     private TestRepository testRepository;
@@ -24,34 +26,32 @@ public class TestServiceImpl implements CreateTestService {
         this.questionRepository = questionRepository;
         this.optionRepository = optionRepository;
     }
-
     @Override
     public void createTest(CreateTestRequest createTestRequest) {
         Long testId = 2l;
         Long examinerId = 1L;
         createTestRequest.getQuestions().forEach(questionRequest -> {
-            List<Option> options = questionRequest.getOptions().stream().map(optionRequest -> {
-                        return new Option(
-                                optionRequest.getOption(),
-                                LocalDateTime.now(),
-                                LocalDateTime.now(),
-                                examinerId,
-                                examinerId,
-                                optionRequest.getIsAnswer()
-                        );
-//                        optionRepository.save(option);
-                    }
-            ).toList();
             Question question = new Question(
                     questionRequest.getQuestion(),
-                    options,
                     LocalDateTime.now(),
                     LocalDateTime.now(),
                     examinerId,
                     examinerId,
                     testId
             );
-            Question question1 = questionRepository.save(question);
+            questionRepository.save(question);
+            questionRequest.getOptions().forEach(optionRequest -> {
+                        Option option= new Option(
+                                optionRequest.getOption(),
+                                LocalDateTime.now(),
+                                LocalDateTime.now(),
+                                question,
+                                examinerId,
+                                examinerId,
+                                optionRequest.getIsAnswer()
+                        );
+                      optionRepository.save(option);
+                    });
         });
 
     }

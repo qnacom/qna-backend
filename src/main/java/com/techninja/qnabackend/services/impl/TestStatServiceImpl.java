@@ -12,6 +12,8 @@ import com.techninja.qnabackend.views.TestStatView;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class TestStatServiceImpl implements TestStatService {
@@ -33,6 +35,7 @@ public class TestStatServiceImpl implements TestStatService {
         Integer unsolved = total - solved;
         return new TestStatView(solved, unsolved, total);
     }
+
     @Override
     public TestResultStatView getResult(Long userId) {
         Long correct = 0l;
@@ -45,20 +48,22 @@ public class TestStatServiceImpl implements TestStatService {
                 .distinct()
                 .toList();
         List<Option> questionOption = optionRepository.findAllByQuestionIdIn(questionId);
-        for (Answer answer : answers) {
-            for (Option option : questionOption) {
-                if (answer.getQuestion().getId().equals(option.getQuestion().getId()) &&
-                        answer.getOptionId().equals(option.getId())) {
-                    if (option.getIsAnswer()) {
-                        correct++;
+        Map<Long, List<Option>> optionByQuestionId = questionOption
+                .stream()
+                .collect(Collectors.groupingBy(option -> option.getQuestion().getId()));
+        System.out.println(optionByQuestionId);
+        correct = answers.stream()
+                .filter(answer -> {
+                    List<Option> options = optionByQuestionId.get(answer.getQuestion().getId());
+                    if (options != null) {
+                        return options
+                                .stream()
+                                .anyMatch(option -> option.getId().equals(answer.getOptionId()) && option.getIsAnswer());
                     } else {
-                        wrong++;
+                        return false;
                     }
-                }
-            }
-        }
-        System.out.println("Coreect answer:-"+correct);
+                }).count();
         result = correct;
-        return new TestResultStatView(correct, wrong, result);
+        return new TestResultStatView(correct, answers.size()-correct, result);
     }
 }

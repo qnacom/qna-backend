@@ -3,6 +3,7 @@ package com.techninja.qnabackend.controllers.request;
 public class AnswerRequest {
 
     private Long userId;
+
     private Long optionId;
 
     public Long getUserId() {
