@@ -24,7 +24,7 @@ jobs:
     - name: Build Jar File
       run: ./gradlew clean build
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag qna-backend:$(date +%s)
+      run: docker build . --file Dockerfile --tag qnacom/qna-backend:latest
     - name: Login to Dockerhub
       env:
         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
