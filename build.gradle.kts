@@ -7,6 +7,10 @@ plugins {
 group = "com.techninja"
 version = "0.0.1-SNAPSHOT"
 
+tasks.getByName<Jar>("jar") {
+	enabled = false
+}
+
 java {
 	sourceCompatibility = JavaVersion.VERSION_21
 }
